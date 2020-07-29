@@ -1,6 +1,6 @@
-[Webserver]
-Webserver ansible_host=3.129.39.207 ansible_user=ubuntu
-[Appserver]
-Appserver1 ansible_host=3.15.29.126 ansible_user=ubuntu
+[Webservers]
+Webserver ansible_host=18.221.99.46 ansible_user=ubuntu
+[Appservers]
+Appserver1 ansible_host=ip-10-192-31-251.us-east-2.compute.internal ansible_user=ubuntu
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

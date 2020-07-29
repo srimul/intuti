@@ -1,0 +1,23 @@
+- name: Install nginx
+  hosts: Webserver
+  become: true
+
+  tasks:
+  - name: Update APT package manager repositories cache
+    apt:
+      update_cache: yes
+
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Insert Index Page
+    template:
+      src: index.html
+      dest: /var/www/html/index.html
+
+  - name: Start NGiNX
+    service:
+      name: nginx
+      state: started

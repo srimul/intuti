@@ -1,0 +1,12 @@
+server {
+  listen          80;
+  server_name     mydomain.com;
+  #root            /etc/tomcat8/webapps/apple;
+
+  proxy_cache one;
+
+  location / {
+        include proxy_params;
+        proxy_pass http://ip-10-192-31-251.us-east-2.compute.internal:8080/;
+  }
+}
