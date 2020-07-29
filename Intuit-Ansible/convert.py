@@ -16,10 +16,10 @@ for line in f1:
         f2.write(line1)
     elif (masters_count > 0):
         masters_count += 1
-        line1='master ansible_host='+line.rstrip('\n')+' ansible_user=ubuntu'+'\n'
+        line1='Webserver ansible_host='+line.rstrip('\n')+' ansible_user=ubuntu'+'\n'
         f2.write(line1)
     else : 
-        line1='worker'+str(workers_count)+' ansible_host='+line.rstrip('\n')+' ansible_user=ubuntu'+'\n'
+        line1='Appserver'+str(workers_count)+' ansible_host='+line.rstrip('\n')+' ansible_user=ubuntu'+'\n'
         f2.write(line1)        
         workers_count += 1
 f2.write('[all:vars]\n')

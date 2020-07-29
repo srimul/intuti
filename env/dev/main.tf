@@ -82,13 +82,13 @@ resource "null_resource" "myPublicIps" {
 #count = var.instance_count
 
 provisioner "local-exec" {
-command =  "echo 'Webserver' > hosts1"
+command =  "echo 'Webservers' > hosts1"
 }
 provisioner "local-exec" {
  command = "echo '${element(module.webserver.server_public_ip.*,0)}' >> hosts1"
  }
 provisioner "local-exec" {
-    command=  "echo 'Appserver' >> hosts1"
+    command=  "echo 'Appservers' >> hosts1"
 }
 provisioner "local-exec" {
      command = "echo '${element(module.Appserver.server_private_DNS.*,0)}' >> hosts1"
