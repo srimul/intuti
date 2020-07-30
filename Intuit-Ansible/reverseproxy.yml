@@ -22,4 +22,4 @@
     - name: Start NGiNX
       service:
          name: nginx
-         state: started
+         state: restarted
