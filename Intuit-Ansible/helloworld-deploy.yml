@@ -1,0 +1,20 @@
+- hosts: Appservers
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+
+  tasks: 
+    - name: Deploy war file
+      copy:
+        src: helloworld.war
+        dest: /opt/tomcat/webapps/helloworld.war
+        owner: tomcat
+        group: tomcat
+        mode: u=rw,g=r,o=r
+      register: war_deployed
+    - name: Restart tomcat
+      systemd:
+        name: tomcat
+        state: restarted
+        enabled: true
+        daemon_reload: true
