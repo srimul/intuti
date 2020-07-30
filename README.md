@@ -4,8 +4,8 @@ https://github.com/srimul/intuti
 prerequisites:
 Need a ec2 instances in the same public network with terraform, git, awscli(configured) and ansible installed.
 ------------ 
-1. Created VPC with terraform module
-      public and private subnets
+1. Create VPC with public and private subnets with vpc.tf
+     code location:vpc.tf
 2. Create two EC2 instances with terraform, one in public and one in private.
      code location: intuti/env/dev/
 3. From step2 we will get the ipaddresses of the instances.
