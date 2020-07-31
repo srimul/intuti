@@ -11,7 +11,7 @@ Need a ec2 instances in the same public network with terraform, git, awscli(conf
 3. From step2 we will get the ipaddresses of the instances.
     here the ipaddress are converted into ansible host format by using convert.py
     code location: intuti/Intuit-Ansible/convert.py
-4.     Test ansible ping 
+4. Test ansible ping 
     ansible -m ping all
 5. Install java using installjdk.yml
    Code location: intuti/Intuit-Ansible/installjdk.yml
