@@ -64,9 +64,6 @@ module "webserver" {
 #  user_data = "${file("master.sh")}"
  }
 
-output "master_public_ip" {
-   value = "${formatlist("%v", module.webserver.*.server_public_ip)}"
-}
 module "Appserver" {
   source = "../../modules/ec2"
   amiid = "${lookup(var.amiid, var.region)}"
@@ -79,10 +76,6 @@ module "Appserver" {
 
 #  user_data = "${file("host.sh")}"
  }
-
-output "public_ip" {
-   value = "${formatlist("%v", module.Appserver.*.server_public_ip)}"
-}
 
 resource "null_resource" "myPublicIps" {
 #count = var.instance_count
@@ -99,5 +92,14 @@ provisioner "local-exec" {
 provisioner "local-exec" {
      command = "echo '${element(module.Appserver.server_private_DNS.*,0)}' >> hosts1"
  }
-   
+ #provisioner "local-exec" {
+ #command = "aws ec2 wait instance-status-ok --instance-ids '${element(module.k8shost.k8s_instance_id.*,0)}' --region us-east-2"
+ #}
+ 
+}
+   output "master_public_ip" {
+   value = "${formatlist("%v", module.webserver.*.server_public_ip)}"
+}
+output "public_ip" {
+   value = "${formatlist("%v", module.Appserver.*.server_public_ip)}"
 }
