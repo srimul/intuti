@@ -1,9 +1,16 @@
 # Intuit-project
+Tools used for this project implementation:
+  Terraform
+  Ansible
+  AWS
+  Python
+  JSP
 https://github.com/srimul/intuti
  
 prerequisites:
 Need a ec2 instances in the same public network with terraform, git, awscli(configured) and ansible installed.
 ------------ 
+
 1. Create VPC with public and private subnets with vpc.tf
      code location:vpc.tf
 2. Create two EC2 instances with terraform, one in public and one in private.
@@ -28,4 +35,7 @@ Need a ec2 instances in the same public network with terraform, git, awscli(conf
 11. Test locally with wget http://{{privatedns}}:8080/helloworld/index.jsp
 12. Configure reverse proxy on nginx to route to helloworld application on tomcat server 
     code location: intuti/Intuit-Ansible/reverseproxy.yml
-13. Access the helloworld.com application you will get response from helloworld.war file deployed on tomcat server.
+13. Access the helloworld.com application you will get response from helloworld.war file deployed on tomcat server
+
+  Intuti-Assaignment.py -->for single click operation
+
